@@ -1,0 +1,1 @@
+This is the README file for the Kinect Project for CISC 877.
