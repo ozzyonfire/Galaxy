@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\control.js">
+    <Files>
+      <File FileName="Assets\Scripts\control.js" Line="54" Column="4" />
+      <File FileName="Assets\Kinect\KinectModelControllerV2.cs" Line="220" Column="54" />
+      <File FileName="Assets\Scripts\ShipController.cs" Line="45" Column="3" />
+      <File FileName="Assets\Scripts\Asteroid.js" Line="66" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
