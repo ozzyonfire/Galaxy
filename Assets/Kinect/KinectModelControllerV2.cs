@@ -83,6 +83,9 @@ public class KinectModelControllerV2 : MonoBehaviour {
 	public bool animated;
 	public float blendWeight = 1;
 	
+	public float playerSpeed = 15;
+	public double collisionForce = 2.5;
+	
 	//adding explosions
 	public GameObject[] _shipExplosions;
 	
@@ -112,7 +115,7 @@ public class KinectModelControllerV2 : MonoBehaviour {
 	{
 		print(hitInfo.relativeVelocity.magnitude);
 		
-		if (hitInfo.relativeVelocity.magnitude > 10)
+		if (hitInfo.relativeVelocity.magnitude > collisionForce)
 		{
 			Explode();
 		}
@@ -214,10 +217,10 @@ public class KinectModelControllerV2 : MonoBehaviour {
 		
 		//rigidbody.AddForce(Hand_Left.transform.up * 7);
 		//rigidbody.AddForce(Hand_Left.transform.forward * 7);
-		rigidbody.AddForce(Hand_Left.transform.right * 15);
+		rigidbody.AddForce(Hand_Left.transform.right * playerSpeed);
 		
 		//rigidbody.AddForce(Hand_Right.transform.up * -7);
-		rigidbody.AddForce(Hand_Right.transform.right * -15);
+		rigidbody.AddForce(Hand_Right.transform.right * -playerSpeed);
 		//rigidbody.AddForce(Hand_Right.transform.forward * -7);
 	}
 	
