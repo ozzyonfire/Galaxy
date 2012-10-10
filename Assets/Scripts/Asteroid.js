@@ -2,7 +2,7 @@
  var x: int;
  var y: int;
  var xPostion: int;
- var yPostion:int;
+ var yPostion: int;
  var count: int=0;
  var time:long;
  time=Time.time;
@@ -18,11 +18,11 @@ function Start() {
    	WARNING!!!: YOU SHOULD CHANGE THE CUBE NAME TO WHATEVER YOU NAME YOUR EMPTY OBJECT
    	*/
    var postions:GameObject = spawn;
-   xPostion=postions.transform.position.x;
-   yPostion=postions.transform.position.y;
+   //xPostion=postions.transform.position.x;
+   yPostion=Screen.height;
    
    //this is the postion of the x axis ( -20 and + 20 of the postion of the empty objects)
-   xPostion=Random.Range(xPostion-20,xPostion+20);
+   xPostion=Random.Range(0,Screen.width);
    
    //this controls the speed and direction of the asteroid
    x=Random.value*100-1;
@@ -56,7 +56,7 @@ function Update () {
 					 var p:Vector3=gameObject.transform.position;
 					 var viewPos : Vector3 = Camera.main.WorldToViewportPoint (p);
 				    // the if condtion checks if the asteroid is out of the camera bound
-				    if( viewPos.x < 0 || viewPos.x >1 || viewPos.y < 0 || viewPos.y >1   )
+				    if( !gameObject.renderer.isVisible )
 				    {
 						  
 						 /**This is the same as the above function which looks for the empty object and repostion it
@@ -64,9 +64,9 @@ function Update () {
 						 	WARNING!!!: YOU SHOULD CHANGE THE CUBE NAME TO WHATEVER YOU NAME YOUR EMPTY OBJECT
 						 	*/ 
 						 var postions:GameObject=spawn;
-					  	 xPostion=postions.transform.position.x;
+					  	 //xPostion=postions.transform.position.x;
 					  	 yPostion=postions.transform.position.y;
-					   	 xPostion=Random.Range(xPostion-50,xPostion+50);
+					   	 xPostion=Random.Range(0,Screen.width);
 					     
 					     
 						 var newPos: Vector3; newPos = new Vector3(xPostion,yPostion,0); 

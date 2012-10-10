@@ -33,7 +33,7 @@ function Update () {
 		/**Number of asteroids to be in the map it's 1+ the length of the loop which is 4 here
 			the 1 is the orginal asteroid and the 4 is the number of clones
 			*/
-		for(var i: int =0;i<3;i++)
+		for(var i: int = 0; i < 3 ;i++)
 		{
 		/**this finds the orginal asteroid and clone it
 			when you create the asteroid you should name it the same name that is shown in the find function which is "asteroid"
