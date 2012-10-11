@@ -55,6 +55,8 @@
      <Compile Include="Assets\Kinect\KinectRecorder.cs" />
      <Compile Include="Assets\Kinect\KinectSensor.cs" />
      <Compile Include="Assets\Kinect\SkeletonWrapper.cs" />
+     <Compile Include="Assets\Scripts\HeadTracking.cs" />
+     <Compile Include="Assets\Scripts\OffCenterProjection.cs" />
      <Compile Include="Assets\Scripts\ShipController.cs" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">

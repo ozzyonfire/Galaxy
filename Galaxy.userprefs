@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Asteroid.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\OffCenterProjection.cs">
     <Files>
-      <File FileName="Assets\Scripts\Asteroid.js" Line="22" Column="27" />
-      <File FileName="Assets\Scripts\control.js" Line="1" Column="1" />
-      <File FileName="Assets\Kinect\KinectModelControllerV2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\OffCenterProjection.cs" Line="33" Column="5" />
+      <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\MouseOrbit.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
