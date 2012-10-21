@@ -9,8 +9,7 @@
  count=0;
 private var cam : Camera;
 private var planes : Plane[];
-
- var spawn : GameObject;
+var spawn : GameObject;
 
 function Start() {
    
@@ -18,11 +17,12 @@ function Start() {
    	WARNING!!!: YOU SHOULD CHANGE THE CUBE NAME TO WHATEVER YOU NAME YOUR EMPTY OBJECT
    	*/
    var postions:GameObject = spawn;
-   //xPostion=postions.transform.position.x;
-   yPostion=Screen.height;
+   xPostion = postions.transform.position.x;
+   //yPostion=Screen.height;
+   yPostion = postions.transform.position.y;
    
    //this is the postion of the x axis ( -20 and + 20 of the postion of the empty objects)
-   xPostion=Random.Range(0,Screen.width);
+   //xPostion=Random.Range(0,Screen.width);
    
    //this controls the speed and direction of the asteroid
    x=Random.value*100-1;
@@ -32,11 +32,6 @@ function Start() {
 	var newPos: Vector3; newPos = new Vector3(xPostion,yPostion,0); 
 	gameObject.transform.position=newPos;
 	gameObject.transform.rigidbody.AddForce(x,y,0);
-	
-	
-	
-	
-
 }
 
 function OnCollisionEnter(hitInfo : Collision)
@@ -55,6 +50,8 @@ function Update () {
 					
 					 var p:Vector3=gameObject.transform.position;
 					 var viewPos : Vector3 = Camera.main.WorldToViewportPoint (p);
+					 var topConstraint : float = Camera.main.ScreenToWorldPoint( new Vector3(0.0f, 0 + Camera.main.transform.position.y, 0 - Camera.main.transform.position.z)).x;
+					 //print(String.Format("top: {0}", topConstraint));
 				    // the if condtion checks if the asteroid is out of the camera bound
 				    if( !gameObject.renderer.isVisible )
 				    {
@@ -64,10 +61,9 @@ function Update () {
 						 	WARNING!!!: YOU SHOULD CHANGE THE CUBE NAME TO WHATEVER YOU NAME YOUR EMPTY OBJECT
 						 	*/ 
 						 var postions:GameObject=spawn;
-					  	 //xPostion=postions.transform.position.x;
+					  	 xPostion=Random.Range(postions.transform.position.x-20,postions.transform.position.x+20);
 					  	 yPostion=postions.transform.position.y;
-					   	 xPostion=Random.Range(0,Screen.width);
-					     
+						//yPostion = topConstraint;
 					     
 						 var newPos: Vector3; newPos = new Vector3(xPostion,yPostion,0); 
 						 gameObject.transform.position=newPos;
@@ -75,8 +71,8 @@ function Update () {
 		
 					    gameObject.transform.rigidbody.velocity = Vector3.zero;
 						gameObject.transform.rigidbody.angularVelocity = Vector3.zero;
-						x=Random.value*100-1;
-						y=Random.value*-100-80;		
+						x=Random.Range(-100,100);
+						y=Random.Range(-100, -50);		
 						gameObject.transform.rigidbody.AddForce(x,y,0);
 				    }
 }

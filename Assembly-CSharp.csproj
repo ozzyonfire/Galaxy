@@ -55,10 +55,15 @@
      <Compile Include="Assets\Kinect\KinectRecorder.cs" />
      <Compile Include="Assets\Kinect\KinectSensor.cs" />
      <Compile Include="Assets\Kinect\SkeletonWrapper.cs" />
-     <Compile Include="Assets\Scripts\HeadTracking.cs" />
+     <Compile Include="Assets\Scripts\GUITest.cs" />
      <Compile Include="Assets\Scripts\OffCenterProjection.cs" />
-     <Compile Include="Assets\Scripts\ShipController.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\RotateObject.cs" />
+     <Compile Include="Assets\Scripts\Slide.cs" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Standard Assets\Gem Rendering\diamond shader.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
