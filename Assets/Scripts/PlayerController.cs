@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 			else if (hitInfo.gameObject.GetComponent<Pickup>().type == 2)
 			{
 				// shield
-				collisionForce = 10;
+				collisionForce = 18;
 			}
 			else
 			{
@@ -117,7 +117,8 @@ public class PlayerController : MonoBehaviour {
 			print("landed");
 			landingPad.renderer.material.color = otherColor;
 			//landingPad.renderer.material.SetColor("_Color", Color.green);
-			
+			landingPad.renderer.material.SetColor("_Color", Color.green);
+			landingPad.renderer.materials[3].color = otherColor;
 			
 			// score is a factor of remaining health & time
 			float timeScore = ((guiScript.Minutes * 60) + guiScript.Seconds)/3;

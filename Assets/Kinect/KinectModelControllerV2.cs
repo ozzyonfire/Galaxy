@@ -75,11 +75,20 @@ public class KinectModelControllerV2 : MonoBehaviour {
 	public GameObject Ankle_Right;
 	public GameObject Foot_Right;
 	
+	public GameObject landingPad;
+	public Color otherColor;
+	
 	public int player;
 	public BoneMask Mask = BoneMask.All;
 	public bool animated;
 	public float blendWeight = 1;
-		
+	
+	public float playerSpeed = 15;
+	public double collisionForce = 2.5;
+	
+	//adding explosions
+	public GameObject[] _shipExplosions;
+	
 	private GameObject[] _bones; //internal handle for the bones of the model
 	private uint _nullMask = 0x0;
 	
@@ -89,9 +98,36 @@ public class KinectModelControllerV2 : MonoBehaviour {
 	private Vector3 _hipRight; //right vector of the hips
 	private Vector3 _chestRight; //right vectory of the chest
 	
+	// explosion method
+	void Explode()
+	{
+		//explode
+		System.Random rand = new System.Random();
+		int _randomNum = rand.Next(0, _shipExplosions.Length-1);
+		
+		Instantiate(_shipExplosions[_randomNum],transform.position,transform.rotation);
+			
+		//destroy
+		Destroy(gameObject);
+	}
+	
+	void OnCollisionEnter(Collision hitInfo)
+	{
+		print(hitInfo.relativeVelocity.magnitude);
+		
+		if (hitInfo.relativeVelocity.magnitude > collisionForce)
+		{
+			Explode();
+		}
+		else if (hitInfo.gameObject.tag == "LandingPad")
+		{
+			print("landed");
+			landingPad.renderer.material.color = otherColor;
+		}
+	}
+	
 	// Use this for initialization
 	void Start () {
-		
 		//store bones in a list for easier access, everything except Hip_Center will be one
 		//higher than the corresponding Kinect.NuiSkeletonPositionIndex (because of the hip_override)
 		_bones = new GameObject[(int)Kinect.NuiSkeletonPositionIndex.Count + 5] {
@@ -178,6 +214,14 @@ public class KinectModelControllerV2 : MonoBehaviour {
 				}
 			}
 		}
+		
+		//rigidbody.AddForce(Hand_Left.transform.up * 7);
+		//rigidbody.AddForce(Hand_Left.transform.forward * 7);
+		rigidbody.AddForce(Hand_Left.transform.right * playerSpeed);
+		
+		//rigidbody.AddForce(Hand_Right.transform.up * -7);
+		rigidbody.AddForce(Hand_Right.transform.right * -playerSpeed);
+		//rigidbody.AddForce(Hand_Right.transform.forward * -7);
 	}
 	
 	void RotateJoint(int bone) {
