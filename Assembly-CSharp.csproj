@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_5_6;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_WIN;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -56,10 +56,13 @@
      <Compile Include="Assets\Kinect\KinectSensor.cs" />
      <Compile Include="Assets\Kinect\SkeletonWrapper.cs" />
      <Compile Include="Assets\Scripts\GUITest.cs" />
+     <Compile Include="Assets\Scripts\HUDelements.cs" />
+     <Compile Include="Assets\Scripts\ManualControl.cs" />
      <Compile Include="Assets\Scripts\OffCenterProjection.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\RotateObject.cs" />
      <Compile Include="Assets\Scripts\Slide.cs" />
+     <Compile Include="Assets\Scripts\camControl.cs" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

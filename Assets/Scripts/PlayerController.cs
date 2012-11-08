@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public float playerSpeed = 20;
 	public double collisionForce = 1.0;
 	
-	private GUITest guiScript;
+	private HUDelements guiScript;
 	private KinectModelControllerV2 KScript;
 	
 	private GameObject HandLeft;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		guiScript = Camera.main.GetComponent<GUITest>();
+		guiScript = Camera.main.GetComponent<HUDelements>();
 		KScript =  gameObject.GetComponent<KinectModelControllerV2>();
 		HandLeft = KScript.Hand_Left;
 		HandRight = KScript.Hand_Right;
