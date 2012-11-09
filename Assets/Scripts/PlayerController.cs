@@ -18,14 +18,17 @@ public class PlayerController : MonoBehaviour {
 	private GameObject HandLeft;
 	private GameObject HandRight;
 	
-	public GameObject landingPad;
+	public GameObject[] landingPads;
+	public GameObject landingPad; // this is the current landing pad
 	public Color otherColor;
+	private int currentPad = 0;
 	
 	private float powerTimer = 0.0f;
 	public bool asteroidsCleared = false;
 
 	// Use this for initialization
 	void Start () {
+		landingPad = landingPads[currentPad];
 		guiScript = Camera.main.GetComponent<HUDelements>();
 		KScript =  gameObject.GetComponent<KinectModelControllerV2>();
 		HandLeft = KScript.Hand_Left;
@@ -112,13 +115,23 @@ public class PlayerController : MonoBehaviour {
 			UpdateHealth(hitInfo.relativeVelocity.magnitude * 5);
 			
 		}
-		else if (hitInfo.gameObject.tag == "LandingPad")
+		else if (hitInfo.gameObject == landingPad)
 		{
 			print("landed");
-			landingPad.renderer.material.color = otherColor;
-			//landingPad.renderer.material.SetColor("_Color", Color.green);
-			landingPad.renderer.material.SetColor("_Color", Color.green);
-			landingPad.renderer.materials[3].color = otherColor;
+			
+			landingPads[currentPad].renderer.material.color = otherColor;
+			
+			currentPad++;
+			if (currentPad == landingPads.Length)
+			{
+				// game over
+				// winning condition
+				currentPad = 0;
+				ResetPads();
+			}
+			
+			landingPad = landingPads[currentPad];
+			guiScript.platform = landingPad;
 			
 			// score is a factor of remaining health & time
 			float timeScore = ((guiScript.Minutes * 60) + guiScript.Seconds)/3;
@@ -132,9 +145,20 @@ public class PlayerController : MonoBehaviour {
 		health -= (int)Mathf.Round(hp);
 		
 		if (health < 0)
+		{
 			Explode();
+			guiScript.curHP = 0;
+		}
 			
 		guiScript.curHP = health;
+	}
+	
+	void ResetPads()
+	{
+		for (int i = 0; i < landingPads.Length; i++)
+		{
+			landingPads[i].renderer.material.color = Color.white;
+		}
 	}
 	
 }

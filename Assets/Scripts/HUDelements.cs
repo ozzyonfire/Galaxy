@@ -8,9 +8,12 @@ public class HUDelements : MonoBehaviour {
 	public float Minutes = 0;
 	// Variables used for the player's health, update value upon collision
 	public float curHP=100;
+	public float maxHP=100;
 	public float curScore = 0;
 	
 	public float powerTimer = 0;
+	
+	public GameObject healthPlane;
 	
 	//for navigation setting
 	public Vector3 screenVec;
@@ -24,11 +27,16 @@ public class HUDelements : MonoBehaviour {
 	public GameObject platform;
 	public GameObject arrow;
 	
+	void Start()
+	{
+		platform = player.GetComponent<PlayerController>().landingPad;
+	}
+	
 	
 	void OnGUI(){
 		GUI.Box (new Rect (0,0,100,50), Minutes.ToString("f0") + ":" + Seconds.ToString("f0"));
 		GUI.Box (new Rect (Screen.width - 100,0,100,50), curScore.ToString ("f0"));
-		GUI.Box (new Rect (0,Screen.height - 50,100,50), curHP.ToString ("f0") + " %");
+		//GUI.Box (new Rect (0,Screen.height - 50,100,50), curHP.ToString ("f0") + " %");
 		GUI.Box (new Rect (Screen.width/2 - 50,Screen.height - 50,100,50), "Power Time: " + powerTimer.ToString("f0"));
 		//GUI.Box (new Rect (Screen.width - 100,Screen.height - 50,100,50), "Navigation ");
 		
@@ -108,11 +116,12 @@ public class HUDelements : MonoBehaviour {
 	}
 	
 	void LateUpdate()
-	{
-		Vector3 direction = new Vector3(platform.transform.position.x - player.transform.position.x, 
-			platform.transform.position.y - player.transform.position.y,
-			platform.transform.position.z - player.transform.position.z);
-		
+	{	
 		arrow.transform.LookAt( platform.transform.position );
+	}
+	
+	void Update()
+	{
+		healthPlane.renderer.material.SetFloat("_Cutoff", Mathf.InverseLerp(0, maxHP, maxHP-curHP));
 	}
 }

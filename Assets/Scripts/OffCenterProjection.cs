@@ -8,7 +8,7 @@ public class OffCenterProjection : MonoBehaviour
 	public Camera cam;
 	public int player;
 	
-	private Vector3 headPos, lastHeadPos, deltaHead = Vector3.zero;
+	//private Vector3 headPos = Vector3.zero;
 	
 	public SkeletonWrapper sw;
 	
@@ -16,20 +16,19 @@ public class OffCenterProjection : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		headPos = sw.bonePos[player,(int)Kinect.NuiSkeletonPositionIndex.Head];
+		//headPos = sw.bonePos[player,(int)Kinect.NuiSkeletonPositionIndex.Head];
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		lastHeadPos = headPos;
+	//	lastHeadPos = headPos;
 		if (sw.pollSkeleton())
 		{
 			trackerPosition = sw.bonePos[player,(int)Kinect.NuiSkeletonPositionIndex.Head];
-			headPos = trackerPosition;
+			//headPos = trackerPosition;
 		}
 		trackerPosition.z += 0f;
-		deltaHead = lastHeadPos - headPos;
 		//cam.transform.Translate(deltaHead.x*10, deltaHead.y*10, deltaHead.z*10);
 	}
 	
